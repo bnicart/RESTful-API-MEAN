@@ -1,0 +1,19 @@
+{
+  "name": "restful-api-mean",
+  "version": "1.0.0",
+  "description": "RESTful API User Authentication using MEAN",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bnicart/RESTfull-API-MEAN.git"
+  },
+  "author": "Billy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bnicart/RESTfull-API-MEAN/issues"
+  },
+  "homepage": "https://github.com/bnicart/RESTfull-API-MEAN#readme"
+}
