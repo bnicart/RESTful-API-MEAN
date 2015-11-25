@@ -20,6 +20,30 @@ app.get('/', function(req, res) {
   res.send('Hello! The API is http://localhost:' + port + '/api');
 });
 
+// connect to database
+mongoose.connect(config.database);
+require('./config/passport')(passport);
+
+var apiRoutes = express.Router();
+
+apiRoutes.post('/signup', function(req, res) {
+  if (!req.body.name || !req.body.password) {
+    res.json({success: false, msg: 'Please supply name and password'});
+  } else {
+    var newUser = new User({
+      name: req.body.name,
+      password: req.body.password
+    });
+
+    newUser.save(function(err) {
+      if (err) { return res.json({success: false, msg: 'Username already exists.'}); }
+      res.json({success: true, msg: 'Successfully created new user.'});
+    });
+  }
+});
+
+app.use('/api', apiRoutes);
+
 app.listen(port);
 console.log('There will be dragons: http://localhost:' + port);
 
