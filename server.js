@@ -9,6 +9,20 @@ var User = require('./app/models/user');
 var port = process.env.PORT || 8080;
 var jwt = require('jwt-simple');
 
+// OPTION 1 for CORS issue
+// var allowCrossDomain = function(req, res, next) {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type');
+//
+//   next();
+// }
+// app.use(allowCrossDomain);
+
+// OPTION 2 for CORS issue
+var cors = require('cors');
+app.use(cors());
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
